@@ -1,0 +1,143 @@
+<!-- views/dashboard.ejs -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiciosPe - Descubre Servicios Locales</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon">SP</span> ServiciosPe
+        </div>
+        <nav class="nav-links">
+            <a href="#">Inicio</a>
+            <a href="#">Categorías</a>
+            <a href="#">Sobre Nosotros</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <div class="user-actions">
+            <a href="#" class="btn-mi-negocio"><i class="fas fa-briefcase"></i> Mi Negocio</a>
+            <div class="dropdown-container"> <a href="#" class="user-profile" id="userProfileToggle">
+                    <img src="<%= user.photo || '/user_placeholder.png' %>" alt="User Avatar" class="user-avatar">
+                    <span id="user-name"><%= user.name || 'Usuario' %></span>
+                </a>
+                <div class="dropdown-menu" id="userDropdown">
+                    <a href="/profile" class="dropdown-item"><i class="fas fa-user"></i> Mi Perfil</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    <a href="/auth/logout" class="dropdown-item logout-item"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <section class="hero-section">
+            <h1>Descubre Servicios Locales</h1>
+            <p>Encuentra los mejores restaurantes, lavanderías, centros de salud y más servicios cerca de ti en Perú.</p>
+            <div class="search-bar-container">
+                <div class="search-input">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="¿Qué servicio necesitas? (ej:">
+                </div>
+                <div class="location-input">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" placeholder="Ubicación (ej: Miraflores, Lim)">
+                </div>
+                <button class="btn-search"><i class="fas fa-search"></i> Buscar</button>
+            </div>
+            <div class="popular-searches">
+                <span>Búsquedas populares:</span>
+                <button class="tag-button">Restaurantes</button>
+                <button class="tag-button">Lavanderías</button>
+                <button class="tag-button">Centros médicos</button>
+                <button class="tag-button">Peluquerías</button>
+                <button class="tag-button">Farmacias</button>
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <div class="category-grid">
+                <div class="category-card" style="background-color: #f77c6f;">
+                    <i class="fas fa-utensils icon"></i>
+                    <h3>Restaurantes</h3>
+                    <p>245 servicios</p>
+                </div>
+                <div class="category-card" style="background-color: #8ed1ef;">
+                    <i class="fas fa-tshirt icon"></i>
+                    <h3>Lavanderías</h3>
+                    <p>88 servicios</p>
+                </div>
+                <div class="category-card" style="background-color: #82e7b1;">
+                    <i class="fas fa-heartbeat icon"></i>
+                    <h3>Salud</h3>
+                    <p>156 servicios</p>
+                </div>
+                <div class="category-card" style="background-color: #e597df;">
+                    <i class="fas fa-car icon"></i>
+                    <h3>Automotriz</h3>
+                    <p>78 servicios</p>
+                </div>
+                <div class="category-card" style="background-color: #f4c2e4;">
+                    <i class="fas fa-spa icon"></i>
+                    <h3>Belleza</h3>
+                    <p>134 servicios</p>
+                </div>
+                <div class="category-card" style="background-color: #ffb86c;">
+                    <i class="fas fa-shopping-basket icon"></i>
+                    <h3>Compras</h3>
+                    <p>201 servicios</p>
+                </div>
+                <div class="category-card" style="background-color: #92b8ea;">
+                    <i class="fas fa-home icon"></i>
+                    <h3>Hogar</h3>
+                    <p>167 servicios</p>
+                </div>
+                <div class="category-card" style="background-color: #83e0b8;">
+                    <i class="fas fa-dumbbell icon"></i>
+                    <h3>Fitness</h3>
+                    <p>92 servicios</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="results-footer">
+            <div class="filter-buttons">
+                <button class="btn-filter"><i class="fas fa-filter"></i> Filtros</button>
+                <button class="btn-view active"><i class="fas fa-list"></i> Lista</button>
+                <button class="btn-view"><i class="fas fa-map-marker-alt"></i> Mapa</button>
+            </div>
+            <div class="found-services">
+                6 servicios encontrados
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userProfileToggle = document.getElementById('userProfileToggle');
+            const userDropdown = document.getElementById('userDropdown');
+
+            if (userProfileToggle && userDropdown) {
+                userProfileToggle.addEventListener('click', (e) => {
+                    e.preventDefault(); // Evita la navegación por defecto
+                    userDropdown.classList.toggle('show');
+                });
+
+                // Cierra el dropdown si se hace clic fuera de él
+                window.addEventListener('click', (e) => {
+                    if (!userProfileToggle.contains(e.target) && !userDropdown.contains(e.target)) {
+                        userDropdown.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

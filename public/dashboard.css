@@ -1,0 +1,443 @@
+/* public/dashboard.css */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #f8f9fa; /* Fondo general más claro */
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: linear-gradient(to right, #6a53d6, #8574f2); /* Degradado del header */
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    background-color: white;
+    color: #6a53d6;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-right: 8px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-mi-negocio {
+    background-color: #ffffff; /* Tono más oscuro de morado */
+    color: rgb(46, 46, 46);
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-mi-negocio:hover {
+    background-color: #4b37a8;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    position: relative; /* Para el botón de logout */
+}
+
+.user-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #eee; /* Placeholder */
+    margin-right: 10px;
+    border: 2px solid white;
+    object-fit: cover;
+}
+
+/* Botón de logout (ejemplo, se podría hacer un dropdown más complejo) */
+.btn-logout {
+    position: absolute;
+    top: 100%; /* Debajo del avatar */
+    right: 0;
+    background-color: #fff;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-decoration: none;
+    font-size: 0.9em;
+    white-space: nowrap;
+    z-index: 10;
+    margin-top: 5px;
+}
+
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #e6e6fa, #f0f8ff); /* Fondo suave */
+}
+
+.hero-section h1 {
+    font-size: 2.8em;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hero-section p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    padding: 10px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.search-input, .location-input {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-right: 1px solid #eee;
+}
+
+.search-input:last-child, .location-input:last-child {
+    border-right: none;
+}
+
+.search-input i, .location-input i {
+    color: #888;
+    margin-right: 10px;
+}
+
+.search-bar-container input {
+    border: none;
+    outline: none;
+    font-size: 1em;
+    flex-grow: 1;
+    padding: 5px 0;
+    color: #333;
+}
+
+.search-bar-container input::placeholder {
+    color: #bbb;
+}
+
+.btn-search {
+    background-color: #8574f2; /* Color del botón de búsqueda */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-search:hover {
+    background-color: #6a53d6;
+}
+
+.popular-searches {
+    margin-top: 20px;
+    font-size: 0.95em;
+    color: #666;
+}
+
+.popular-searches span {
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.tag-button {
+    background-color: #e0e0e0;
+    color: #555;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tag-button:hover {
+    background-color: #d0d0d0;
+}
+
+/* Categories Section */
+.categories-section {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-card {
+    background-color: white; /* Color base, sobreescrito por inline style */
+    color: white; /* Color del texto y ícono, sobreescrito */
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.category-card .icon {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: white; /* El color del icono será el del fondo del card */
+}
+
+.category-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: white;
+}
+
+.category-card p {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Results Footer */
+.results-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: white;
+    border-top: 1px solid #eee;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-filter, .btn-view {
+    background-color: #f0f2f5;
+    color: #555;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-filter:hover, .btn-view:hover:not(.active) {
+    background-color: #e0e0e0;
+}
+
+.btn-view.active {
+    background-color: #8574f2;
+    color: white;
+}
+
+.found-services {
+    font-weight: 500;
+    color: #666;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    .nav-links {
+        display: none; /* Puedes cambiar esto por un menú hamburguesa */
+    }
+    .search-bar-container {
+        flex-direction: column;
+        padding: 15px;
+        max-width: 90%;
+    }
+    .search-input, .location-input {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+    .search-input:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .btn-search {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .results-footer {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+    .filter-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .hero-section h1 {
+        font-size: 2em;
+    }
+    .hero-section p {
+        font-size: 0.9em;
+    }
+    .user-actions {
+        width: 100%;
+        justify-content: center;
+    }
+    .popular-searches {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .tag-button {
+        margin: 3px;
+    }
+}
+
+/* public/dashboard.css (añadir al final del archivo existente o donde prefieras) */
+
+/* Dropdown para el perfil de usuario */
+.dropdown-container {
+    position: relative;
+    display: inline-block; /* Asegura que el contenedor abarque solo su contenido */
+}
+
+.user-profile {
+    /* ... Tus estilos existentes para user-profile ... */
+    cursor: pointer; /* Indica que es clickeable */
+}
+
+.dropdown-menu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    right: 0; /* Alinea el dropdown a la derecha del avatar */
+    background-color: #fff;
+    min-width: 180px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 100;
+    border-radius: 8px;
+    overflow: hidden; /* Para que el borde redondeado se aplique a los ítems */
+    top: calc(100% + 10px); /* Posiciona debajo del user-profile con un pequeño espacio */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; /* No permite interacciones cuando está oculto */
+}
+
+.dropdown-menu.show {
+    display: block; /* Muestra el dropdown cuando la clase 'show' está presente */
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all; /* Permite interacciones cuando está visible */
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: 0.95em;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f2f5;
+    color: #6a53d6; /* Color de énfasis al pasar el mouse */
+}
+
+.dropdown-item i {
+    margin-right: 10px;
+    width: 20px; /* Para alinear los iconos */
+    text-align: center;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 8px 0;
+}
+
+.dropdown-item.logout-item {
+    color: #e53935; /* Rojo para "Cerrar Sesión" */
+    font-weight: 500;
+}
+
+.dropdown-item.logout-item:hover {
+    background-color: #ffebee; /* Fondo rojo claro al pasar el mouse */
+    color: #c62828;
+}

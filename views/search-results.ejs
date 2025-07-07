@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Búsqueda - ServiciosPe</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <a href="/dashboard" class="a-logo">
+                <span class="logo-icon">SP</span> ServiciosPe</a>
+        </div>
+        </nav>
+        <div class="user-actions">
+            <a href="/register-provider" class="btn-mi-negocio"><i class="fas fa-briefcase"></i> Mi Negocio</a>
+            <div class="dropdown-container">
+                <a href="#" class="user-profile" id="userProfileToggle">
+                    <img src="<%= user.photo || '/user_placeholder.png' %>" alt="User Avatar" class="user-avatar">
+                    <span id="user-name"><%= user.name || 'Usuario' %></span>
+                </a>
+                <div class="dropdown-menu" id="userDropdown">
+                    <a href="/profile" class="dropdown-item"><i class="fas fa-user"></i> Mi Perfil</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-heart"></i> Favoritos</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="/auth/logout" class="dropdown-item logout-item"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <div class="simulated-page-card" style="max-width: 1000px;">
+            <h2>Resultados de Búsqueda: "Restaurantes" en Santa Anita, Lima</h2>
+
+            <div class="search-filters-bar" style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: space-between; margin-bottom: 25px;">
+                <div class="filter-group">
+                    <label for="category-filter">Categoría:</label>
+                    <select id="category-filter" onchange="alert('Filtro por categoría cambiado a ' + this.value)">
+                        <option value="todos">Todos</option>
+                        <option value="restaurantes" selected>Restaurantes</option>
+                        <option value="lavanderias">Lavanderías</option>
+                        <option value="salud">Salud</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="distance-filter">Distancia:</label>
+                    <select id="distance-filter" onchange="alert('Filtro por distancia cambiado a ' + this.value)">
+                        <option value="500m">500m</option>
+                        <option value="1km" selected>1km</option>
+                        <option value="2km">2km</option>
+                        <option value="5km">5km</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="hours-filter">Horario:</label>
+                    <select id="hours-filter" onchange="alert('Filtro por horario cambiado a ' + this.value)">
+                        <option value="open">Abierto ahora</option>
+                        <option value="any" selected>Cualquier horario</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="rating-filter">Calificación:</label>
+                    <select id="rating-filter" onchange="alert('Filtro por calificación cambiado a ' + this.value)">
+                        <option value="all">Todas</option>
+                        <option value="4+">4 estrellas o más</option>
+                        <option value="3+">3 estrellas o más</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sort-by">Ordenar por:</label>
+                    <select id="sort-by" onchange="alert('Ordenado por ' + this.value)">
+                        <option value="distance" selected>Distancia</option>
+                        <option value="rating">Calificación</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="service-list-grid">
+        <div class="service-card" data-service-id="1" data-service-name="La Casona del Sabor">
+            <a href="/service-detail/1" class="service-image-link">
+                <img src="images/restaurante_mock.jpg" alt="Restaurante La Casona">
+            </a>
+            <div class="service-info">
+                <a href="/service-detail/1" class="service-title-link titulo-link">
+                    <h3>La Casona del Sabor</h3>
+                </a>
+                <p class="service-meta"><i class="fas fa-star"></i> 4.8 (120 reseñas) &bull; <i class="fas fa-utensils"></i> Restaurante</p>
+                <p class="service-location"><i class="fas fa-map-marker-alt"></i> 1.2 km • Av. Los Rosales 123, Santa Anita</p>
+                <p class="service-hours"><i class="fas fa-clock"></i> Abierto ahora hasta las 10 PM</p>
+                <p class="service-eta">Tiempo estimado: 15 min</p>
+                <a href="/map-view" class="btn-show-on-map"><i class="fas fa-map-marker-alt"></i> Mostrar en mapa</a>
+            </div>
+            <button class="btn-favorite" data-service-id="1">
+                <i class="far fa-heart"></i> </button>
+        </div>
+
+        <div class="service-card" data-service-id="2" data-service-name="Limpio Express">
+            <a href="/service-detail/2" class="service-image-link">
+                <img src="images/lavanderia_mock.jpg" alt="Lavandería Limpio Express">
+            </a>
+            <div class="service-info">
+                <a href="/service-detail/2" class="service-title-link titulo-link">
+                    <h3>Limpio Express</h3>
+                </a>
+                <p class="service-meta"><i class="fas fa-star"></i> 4.5 (85 reseñas) &bull; <i class="fas fa-tshirt"></i> Lavandería</p>
+                <p class="service-location"><i class="fas fa-map-marker-alt"></i> 0.8 km • Jr. Las Flores 456, Santa Anita</p>
+                <p class="service-hours"><i class="fas fa-clock"></i> Abierto ahora hasta las 7 PM</p>
+                <p class="service-eta">Tiempo estimado: 10 min</p>
+                <a href="/map-view" class="btn-show-on-map"><i class="fas fa-map-marker-alt"></i> Mostrar en mapa</a>
+            </div>
+            <button class="btn-favorite" data-service-id="2">
+                <i class="far fa-heart"></i>
+            </button>
+        </div>
+
+        <div class="service-card" data-service-id="3" data-service-name="Clínica Salud Total">
+            <a href="/service-detail/3" class="service-image-link">
+                <img src="images/clinica_mock.jpg" alt="Clínica Salud Total">
+            </a>
+            <div class="service-info">
+                <a href="/service-detail/3" class="service-title-link titulo-link">
+                    <h3>Clínica Salud Total</h3>
+                </a>
+                <p class="service-meta"><i class="fas fa-star"></i> 4.9 (210 reseñas) &bull; <i class="fas fa-heartbeat"></i> Centro de Salud</p>
+                <p class="service-location"><i class="fas fa-map-marker-alt"></i> 2.5 km • Av. La Molina 789, Santa Anita</p>
+                <p class="service-hours"><i class="fas fa-clock"></i> Abierto 24 horas</p>
+                <p class="service-eta">Tiempo estimado: 20 min</p>
+                <a href="/map-view" class="btn-show-on-map"><i class="fas fa-map-marker-alt"></i> Mostrar en mapa</a>
+            </div>
+            <button class="btn-favorite" data-service-id="3">
+                <i class="far fa-heart"></i>
+            </button>
+        </div>
+
+        <div class="service-card" data-service-id="4" data-service-name="Sazón Peruana">
+            <a href="/service-detail/4" class="service-image-link">
+                <img src="images/restaurante_mock2.jpg" alt="Restaurante Sazón Peruana">
+            </a>
+            <div class="service-info">
+                <a href="/service-detail/4" class="service-title-link titulo-link">
+                    <h3>Sazón Peruana</h3>
+                </a>
+                <p class="service-meta"><i class="fas fa-star"></i> 4.5 (95 reseñas) &bull; <i class="fas fa-utensils"></i> Restaurante</p>
+                <p class="service-location"><i class="fas fa-map-marker-alt"></i> 0.9 km • Calle El Sol 50, Santa Anita</p>
+                <p class="service-hours"><i class="fas fa-clock"></i> Cierra a las 9 PM</p>
+                <p class="service-eta">Tiempo estimado: 12 min</p>
+            </div>
+            <button class="btn-favorite" data-service-id="4">
+                <i class="far fa-heart"></i>
+            </button>
+        </div>
+
+        <div class="service-card" data-service-id="5" data-service-name="Sabores de Asia">
+            <a href="/service-detail/5" class="service-image-link">
+                <img src="images/restaurante_mock3.jpg" alt="Restaurante Sabores de Asia">
+            </a>
+            <div class="service-info">
+                <a href="/service-detail/5" class="service-title-link titulo-link">
+                    <h3>Sabores de Asia</h3>
+                </a>
+                <p class="service-meta"><i class="fas fa-star"></i> 4.2 (60 reseñas) &bull; <i class="fas fa-utensils"></i> Restaurante Asiático</p>
+                <p class="service-location"><i class="fas fa-map-marker-alt"></i> 1.5 km • Av. Húsares de Junín 200, Santa Anita</p>
+                <p class="service-hours"><i class="fas fa-clock"></i> Abierto ahora hasta las 11 PM</p>
+                <p class="service-eta">Tiempo estimado: 18 min</p>
+            </div>
+            <button class="btn-favorite" data-service-id="5">
+                <i class="far fa-heart"></i>
+            </button>
+        </div>
+
+        <div class="service-card" data-service-id="6" data-service-name="Pizzería La Mía Masa">
+            <a href="/service-detail/6" class="service-image-link">
+                <img src="images/restaurante_mock4.jpg" alt="Pizzería La Mía Masa">
+            </a>
+            <div class="service-info">
+                <a href="/service-detail/6" class="service-title-link titulo-link">
+                    <h3>Pizzería La Mía Masa</h3>
+                </a>
+                <p class="service-meta"><i class="fas fa-star"></i> 4.7 (150 reseñas) &bull; <i class="fas fa-pizza-slice"></i> Pizzería</p>
+                <p class="service-location"><i class="fas fa-map-marker-alt"></i> 0.7 km • Jr. Ayacucho 105, Santa Anita</p>
+                <p class="service-hours"><i class="fas fa-clock"></i> Abierto ahora hasta las 12 AM</p>
+                <p class="service-eta">Tiempo estimado: 10 min</p>
+            </div>
+            <button class="btn-favorite" data-service-id="6">
+                <i class="far fa-heart"></i>
+            </button>
+        </div>
+
+        <div class="service-card" data-service-id="7" data-service-name="Pollería El Carbonero">
+            <a href="/service-detail/7" class="service-image-link">
+                <img src="images/restaurante_mock5.jpg" alt="Pollería El Carbonero">
+            </a>
+            <div class="service-info">
+                <a href="/service-detail/7" class="service-title-link titulo-link">
+                    <h3>Pollería El Carbonero</h3>
+                </a>
+                <p class="service-meta"><i class="fas fa-star"></i> 4.6 (230 reseñas) &bull; <i class="fas fa-drumstick-bite"></i> Pollería</p>
+                <p class="service-location"><i class="fas fa-map-marker-alt"></i> 2.1 km • Av. Nicolás Ayllón 1500, Santa Anita</p>
+                <p class="service-hours"><i class="fas fa-clock"></i> Abierto ahora hasta las 11 PM</p>
+                <p class="service-eta">Tiempo estimado: 25 min</p>
+            </div>
+            <button class="btn-favorite" data-service-id="7">
+                <i class="far fa-heart"></i>
+            </button>
+        </div>
+    </div>
+    <div class="results-footer">
+        <div class="filter-buttons">
+            <a href="/search-results" class="btn-view active"><i class="fas fa-list"></i> Ver todos</a>
+            <a href="/map-view" class="btn-view"><i class="fas fa-map-marker-alt"></i> Mapa</a>
+        </div>
+        <div class="found-services">
+            6 servicios encontrados
+        </div>
+    </div>
+
+            <div class="results-footer">
+                <div class="filter-buttons">
+                    <button class="btn-filter" onclick="alert('Abriendo filtros avanzados...');"><i class="fas fa-filter"></i> Más Filtros</button>
+                    <button class="btn-view active"><i class="fas fa-list"></i> Lista</button>
+                    <a href="/map-view" class="btn-view"><i class="fas fa-map-marker-alt"></i> Mapa</a>
+                </div>
+                <div class="found-services">
+                    5 servicios encontrados (de 245 restaurantes)
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userProfileToggle = document.getElementById('userProfileToggle');
+            const userDropdown = document.getElementById('userDropdown');
+            if (userProfileToggle && userDropdown) {
+                userProfileToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    userDropdown.classList.toggle('show');
+                });
+                window.addEventListener('click', (e) => {
+                    if (!userProfileToggle.contains(e.target) && !userDropdown.contains(e.target)) {
+                        userDropdown.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

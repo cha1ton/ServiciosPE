@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Servicio - La Casona del Sabor</title>
+    <link rel="stylesheet" href="/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <a href="/dashboard" class="a-logo">
+                <span class="logo-icon">SP</span> ServiciosPe</a>
+        </div>
+        <div class="user-actions">
+            <a href="/register-provider" class="btn-mi-negocio"><i class="fas fa-briefcase"></i> Mi Negocio</a>
+            <div class="dropdown-container">
+                <a href="#" class="user-profile" id="userProfileToggle">
+                    <img src="<%= user.photo || '/user_placeholder.png' %>" alt="User Avatar" class="user-avatar">
+                    <span id="user-name"><%= user.name || 'Usuario' %></span>
+                </a>
+                <div class="dropdown-menu" id="userDropdown">
+                    <a href="/profile" class="dropdown-item"><i class="fas fa-user"></i> Mi Perfil</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-heart"></i> Favoritos</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="/auth/logout" class="dropdown-item logout-item"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <div class="service-detail-container">
+            <h1>La Casona del Sabor</h1>
+            <div class="service-detail-meta">
+                <span class="rating"><i class="fas fa-star"></i> 4.8 (120 reseñas)</span>
+                <span><i class="fas fa-utensils"></i> Restaurante</span>
+                <span><i class="fas fa-map-marker-alt"></i> 1.2 km de tu ubicación</span>
+                <span><i class="fas fa-clock"></i> Abierto ahora</span>
+            </div>
+
+            <div class="service-gallery">
+                <img src="/images/restaurante_mock.jpg" alt="Fachada La Casona">
+                <img src="/images/restaurante_mock_int1.jpg" alt="Interior La Casona 1">
+                <img src="/images/restaurante_mock_int2.jpg" alt="Interior La Casona 2">
+                <img src="/images/restaurante_mock_plato1.jpg" alt="Plato La Casona 1">
+                <img src="/images/restaurante_mock_plato2.jpg" alt="Plato La Casona 2">
+            </div>
+
+            <div class="service-info-block">
+                <h3>Información General</h3>
+                <p>La Casona del Sabor es un tradicional restaurante de comida criolla peruana ubicado en el corazón de Santa Anita. Ofrecemos una experiencia culinaria auténtica con los mejores insumos frescos y recetas caseras transmitidas de generación en generación. ¡Ideal para disfrutar en familia o con amigos!</p>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Dirección: Av. Los Rosales 123, Santa Anita, Lima</li>
+                    <li><i class="fas fa-phone"></i> Teléfono: (01) 456-7890</li>
+                    <li><i class="fas fa-clock"></i> Horarios: Lunes a Sábado 12:00 PM - 10:00 PM | Domingos 12:00 PM - 6:00 PM</li>
+                </ul>
+            </div>
+
+            <div class="service-info-block">
+                <h3>Servicios Ofrecidos</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Almuerzos y Cenas</li>
+                    <li><i class="fas fa-check-circle"></i> Menú del Día</li>
+                    <li><i class="fas fa-check-circle"></i> Servicio de Delivery (propio y Apps)</li>
+                    <li><i class="fas fa-check-circle"></i> Eventos privados (salón disponible)</li>
+                    <li><i class="fas fa-check-circle"></i> Estacionamiento propio</li>
+                    <li><i class="fas fa-wifi"></i> Wi-Fi Gratuito</li>
+                </ul>
+            </div>
+
+            <a href="/map-view?service=LaCasona" class="btn-get-directions" onclick="alert('Calculando ruta a La Casona del Sabor...');">
+                <i class="fas fa-directions"></i> Cómo llegar (Tiempo estimado: 15 min)
+            </a>
+
+            <div class="reviews-section">
+                <h3>Reseñas y Calificaciones (120)</h3>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-author">Ana Gómez</span>
+                        <span class="review-rating"><span class="stars">★★★★★</span> (5 estrellas)</span>
+                        <span class="review-date">01/07/2025</span>
+                    </div>
+                    <p class="review-text">¡Excelente comida criolla! El ají de gallina es espectacular y la atención muy amable. Volveré pronto.</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-author">Carlos Torres</span>
+                        <span class="review-rating"><span class="stars">★★★★☆</span> (4 estrellas)</span>
+                        <span class="review-date">28/06/2025</span>
+                    </div>
+                    <p class="review-text">Buena sazón, aunque el local estaba un poco lleno. La causa rellena estaba deliciosa.</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-author">María Paz</span>
+                        <span class="review-rating"><span class="stars">★★★★★</span> (5 estrellas)</span>
+                        <span class="review-date">25/06/2025</span>
+                    </div>
+                    <p class="review-text">Un clásico que nunca falla. El ambiente es acogedor y los precios justos para la calidad.</p>
+                </div>
+
+                <div class="review-form">
+                    <h4>Deja tu reseña</h4>
+                    <div class="star-rating-input" id="starRating">
+                        <i class="far fa-star star" data-value="1"></i>
+                        <i class="far fa-star star" data-value="2"></i>
+                        <i class="far fa-star star" data-value="3"></i>
+                        <i class="far fa-star star" data-value="4"></i>
+                        <i class="far fa-star star" data-value="5"></i>
+                    </div>
+                    <textarea placeholder="Comparte tu experiencia con este servicio..." id="reviewText"></textarea>
+                    <button onclick="submitReview()">Enviar Reseña</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const userProfileToggle = document.getElementById('userProfileToggle');
+            const userDropdown = document.getElementById('userDropdown');
+            if (userProfileToggle && userDropdown) {
+                userProfileToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    userDropdown.classList.toggle('show');
+                });
+                window.addEventListener('click', (e) => {
+                    if (!userProfileToggle.contains(e.target) && !userDropdown.contains(e.target)) {
+                        userDropdown.classList.remove('show');
+                    }
+                });
+            }
+
+            // Simulación de calificación por estrellas (RF70)
+            const starRating = document.getElementById('starRating');
+            let selectedRating = 0;
+
+            starRating.addEventListener('click', (e) => {
+                if (e.target.classList.contains('star')) {
+                    selectedRating = parseInt(e.target.dataset.value);
+                    updateStars(selectedRating);
+                }
+            });
+
+            starRating.addEventListener('mouseover', (e) => {
+                if (e.target.classList.contains('star')) {
+                    const hoverValue = parseInt(e.target.dataset.value);
+                    updateStars(hoverValue, true);
+                }
+            });
+
+            starRating.addEventListener('mouseout', () => {
+                updateStars(selectedRating);
+            });
+
+            function updateStars(rating, isHover = false) {
+                Array.from(starRating.children).forEach(star => {
+                    const starValue = parseInt(star.dataset.value);
+                    if (starValue <= rating) {
+                        star.classList.remove('far');
+                        star.classList.add('fas', 'selected');
+                    } else {
+                        star.classList.remove('fas', 'selected');
+                        star.classList.add('far');
+                    }
+                });
+            }
+
+            // Cargar la lista de malas palabras desde el archivo JSON
+            let badWords = [];
+            try {
+                const response = await fetch('/bad_words.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                badWords = data.malas_palabras;
+                console.log('Bad words loaded:', badWords);
+            } catch (error) {
+                console.error('Error loading bad words:', error);
+                alert('No se pudo cargar la lista de palabras prohibidas. La moderación de comentarios podría no funcionar correctamente.');
+            }
+
+            window.submitReview = () => {
+                const reviewText = document.getElementById('reviewText').value.trim();
+                
+                if (selectedRating === 0) {
+                    alert('Por favor, selecciona una calificación por estrellas.');
+                    return;
+                }
+                if (reviewText.length < 10) {
+                    alert('Tu reseña debe tener al menos 10 caracteres.');
+                    return;
+                }
+
+                // Detección de malas palabras (RF71 - Modificado)
+                const lowerCaseReviewText = reviewText.toLowerCase();
+                let containsInappropriate = false;
+                for (const word of badWords) {
+                    // Usar RegExp para buscar la palabra completa y evitar coincidencias parciales
+                    // Por ejemplo, "mierda" no coincidirá con "amiércoles"
+                    const regex = new RegExp(`\\b${word}\\b`, 'i'); // '\\b' es para límites de palabra, 'i' para case-insensitive
+                    if (regex.test(lowerCaseReviewText)) {
+                        containsInappropriate = true;
+                        break;
+                    }
+                }
+
+                if (containsInappropriate) {
+                    alert('Su comentario contiene lenguaje inapropiado. Por favor, modifique su comentario.');
+                    return;
+                }
+
+                alert(`Reseña enviada con ${selectedRating} estrellas:\n"${reviewText}"\n(Simulado: El sistema moderaría y calcularía el promedio).`);
+                // Reset form
+                selectedRating = 0;
+                updateStars(0);
+                document.getElementById('reviewText').value = '';
+            };
+        });
+    </script>
+</body>
+</html>
